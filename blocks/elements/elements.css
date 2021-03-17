@@ -1,0 +1,19 @@
+.elements {
+  display: grid;
+  grid-template-columns: repeat(3, 282px);
+  grid-template-rows: repeat(2, 361px);
+  gap: 20px 17px;
+  justify-content: center;
+  margin: 0px;
+  box-sizing: border-box;
+  max-width: 880px;
+  margin: 0px auto;
+  list-style: none;
+  padding-bottom: 67px;
+  box-sizing: border-box;
+}
+
+/*.elements {
+  margin: 0px auto;
+  max-width: 880px;
+}*/

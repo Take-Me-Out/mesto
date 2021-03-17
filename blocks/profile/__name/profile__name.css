@@ -1,0 +1,10 @@
+.profile__name {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  color: #FFFFFF;
+  margin: 0px;
+  padding: 0px;
+  grid-area: name;
+}
