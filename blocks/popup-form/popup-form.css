@@ -1,0 +1,9 @@
+.popup-form {
+  font-family: inherit;
+  outline: none;
+  max-width: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}

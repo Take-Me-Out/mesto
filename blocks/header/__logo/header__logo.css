@@ -2,3 +2,9 @@
   padding: 0px 0px 41px 0px;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 614px) {
+  .header__logo {
+    padding-bottom: 31.6px;
+  }
+}

@@ -5,3 +5,17 @@
   padding-top: 45px;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 899px) {
+  .header {
+    max-width: 581px;
+  }
+}
+
+@media screen and (max-width: 614px) {
+  .header {
+    width: 100%;
+    max-width: 614px;
+    padding-top: 28px;
+  }
+}

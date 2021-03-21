@@ -1,0 +1,45 @@
+.popup-form__input {
+  font-family: inherit;
+  /*opacity: 0.2;*/
+  border-bottom: 1px solid #000000;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 358px;
+  outline: none;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+.popup-form__input::placeholder {
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.popup-form__input::-webkit-input-placeholder {
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.popup-form__input::-moz-placeholder          {
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  opacity: 0.9;
+}
+
+.popup-form__input::-ms-input-placeholder     {
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}

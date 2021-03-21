@@ -4,3 +4,10 @@
   max-height: 120px;
   object-fit: cover;
 }
+
+@media screen and (max-width: 614px) {
+  .profile__photo {
+    padding-bottom: 26px;
+    box-sizing: border-box;
+  }
+}

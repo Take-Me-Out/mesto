@@ -1,0 +1,22 @@
+.popup__close-button {
+  color: #FFFFFF;
+  transform: rotate(-45deg);
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  /*right: 30.73%;
+  top: 146.75px;*/
+  top: -40px;
+  right: -40px;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.popup__close-button:hover {
+  opacity: 0.6;
+}
