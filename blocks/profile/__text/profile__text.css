@@ -5,7 +5,19 @@
   grid-template-areas: 
   'name edit-button'
   'information information';
-  justify-content: flex-start;
+  justify-content: start;
   gap: 16px 18px;
-  align-items: flex-start;
+  align-items: start;
+}
+
+@media screen and (max-width: 614px) {
+  .profile__text {
+    padding-bottom: 36px;
+    box-sizing: border-box;
+    grid-template-columns: auto 18px;
+    grid-template-rows: fit-content(26px) auto;
+    align-items: center;
+    justify-items: center;
+    gap: 14px 10px;
+  }
 }

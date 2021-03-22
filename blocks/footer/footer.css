@@ -6,7 +6,14 @@
   box-sizing: border-box;
 }
 
+@media screen and (max-width: 899px) {
+  .footer {
+    max-width: 581px;
+  }
+}
+
 @media screen and (max-width: 614px) {
   .footer {
     padding-bottom: 36px;
+    max-width: 282px;
   }

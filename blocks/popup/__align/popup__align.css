@@ -4,5 +4,19 @@
   justify-content: flex-start;
   align-items: center;
   padding-top: 34px;
+  padding-bottom: 37px;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 899px) {
+  .popup__align {
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 614px) {
+  .popup__align {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
 }

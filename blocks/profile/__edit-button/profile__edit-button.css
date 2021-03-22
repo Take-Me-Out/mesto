@@ -21,7 +21,6 @@
     max-width: 18px;
     max-height: 18px;
     padding: 5.25px;
-    margin: -18px;
-    align-self: none;
+    align-self: center;
   }
 }

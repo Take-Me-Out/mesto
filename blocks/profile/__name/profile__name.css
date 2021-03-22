@@ -14,8 +14,11 @@
 
 @media screen and (max-width: 614px) {
   .profile__name {
-    padding-bottom: 14px;
     box-sizing: border-box;
     max-width: 254px;
+    font-size: 27px;
+    line-height: 33px;
+    grid-area: name;
+    text-align: center;
   }
 }

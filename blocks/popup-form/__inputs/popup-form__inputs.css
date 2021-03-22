@@ -8,4 +8,18 @@
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 18px;
+  padding: 0px;
+}
+
+@media screen and (max-width: 899px) {
+  .popup-form__inputs {
+    max-width: 280px;
+  }
+}
+
+@media screen and (max-width: 614px) {
+  .popup-form__inputs {
+    margin-bottom: 15px;
+    max-width: 282px;
+  }
 }

@@ -6,5 +6,9 @@
 @media screen and (max-width: 614px) {
   .header__logo {
     padding-bottom: 31.6px;
+    margin-left: calc((100% - 282px)/2); /*ширина окна минус самый блок страницы поделить на два поля = отступ на одном уровне с профилем*/
+    max-width: 103.74px;
+    /*max-height: 25px;*/
+    object-fit: cover;
   }
 }

@@ -9,6 +9,8 @@
   outline: none;
   margin-bottom: 30px;
   box-sizing: border-box;
+  padding-bottom: 13px;
+  max-height: 27px;
 }
 
 .popup-form__input::placeholder {
@@ -42,4 +44,16 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
+}
+
+@media screen and (max-width: 899px) {
+  .popup-form__input {
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 614px) {
+  .popup-form__input {
+    width: 238px;
+  }
 }

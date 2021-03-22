@@ -2,8 +2,23 @@
   font-family: inherit;
   outline: none;
   max-width: 430px;
+  max-height: 330px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+
+@media screen and (max-width: 899px) {
+  .popup-form {
+    max-width: 350px;
+    max-height: 325px;
+  }
+}
+
+@media screen and (max-width: 614px) {
+  .popup-form {
+    max-width: 282px;
+    max-height: 322px;
+  }
 }

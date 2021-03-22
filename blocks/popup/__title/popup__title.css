@@ -8,4 +8,18 @@
   margin: 0px 0px 54px 36px;
   padding: 0px;
   box-sizing: border-box;
+  max-height: 23px;
+}
+
+@media screen and (max-width: 899px) {
+  .popup__title {
+    margin: 0px 0px 64px 18px;
+  }
+}
+
+@media screen and (max-width: 614px) {
+  .popup__title {
+    font-size: 18px;
+    margin: 0px 0px 75px 22px;
+  }
 }
