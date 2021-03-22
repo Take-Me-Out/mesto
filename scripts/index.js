@@ -22,11 +22,11 @@ submit.addEventListener('click', submitProfile);*/
 let formElement = document.querySelector('.popup-form');
 function formSubmitHandler(evt) {
   evt.preventDefault();
+  surname.textContent = oldName.value;
+  information.textContent = oldInformation.value;
   popup.classList.remove('popup_visible');
 }
-
-let submit = document.getElementById('submit');
-submit.addEventListener('click', formSubmitHandler);
+formElement.addEventListener('submit', formSubmitHandler);
 
 let closeButton = document.getElementById('close-button');
 function closePopup() {
