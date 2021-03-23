@@ -18,16 +18,13 @@
 @import url(../blocks/element/__city/element__city.css);
 @import url(../blocks/element/__caption/element__caption.css);
 @import url(../blocks/element/__button/element__button.css);
-@import url(../blocks/element/__button-image/element__button-image.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/header/__logo/header__logo.css);
 @import url(../blocks/popup/__content/popup__content.css);
 @import url(../blocks/popup/_visible/popup_visible.css);
-@import url(../blocks/popup/__overlay/popup__overlay.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__align/popup__align.css);
 @import url(../blocks/popup-form/__inputs/popup-form__inputs.css);
 @import url(../blocks/popup-form/__input/popup-form__input.css);
 @import url(../blocks/popup-form/__button/popup-form__button.css);
-@import url(../blocks/popup-form/__buttons/);

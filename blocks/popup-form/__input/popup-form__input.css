@@ -1,7 +1,6 @@
 .popup-form__input {
   font-family: inherit;
-  /*opacity: 0.2;*/
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   border-top: none;
   border-right: none;
   border-left: none;
@@ -10,7 +9,6 @@
   margin-bottom: 30px;
   box-sizing: border-box;
   padding-bottom: 13px;
-  max-height: 27px;
 }
 
 .popup-form__input::placeholder {
@@ -48,7 +46,7 @@
 
 @media screen and (max-width: 899px) {
   .popup-form__input {
-    width: 280px;
+    width: 306px;
   }
 }
 
