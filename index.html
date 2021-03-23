@@ -72,26 +72,26 @@
             </div>
           </div>
         </section>
-        <section class="popup">
-          <div class="popup__overlay"></div>
-          <div class="popup__content">
-            <p class="popup__close-button" id="close-button">+</p>
-            <div class="popup__align">
-              <h2 class="popup__title">Редактировать профиль</h2>
-              <form class="popup-form">
-                <fieldset class="popup-form__inputs">
-                  <input class="popup-form__input" type="text" name="name" id="name" placeholder="Жак-Ив Кусто">
-                  <input class="popup-form__input" type="text" name="information" id="information" placeholder="Исследователь океана">
-                </fieldset>
-                <button class="popup-form__button" type="submit" id="submit">Сохранить</button>
-              </form>
-            </div>
-          </div>
-        </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
       </footer>
+      <div class="popup">
+        <div class="popup__overlay"></div>
+        <div class="popup__content">
+          <button class="popup__close-button" id="close-button" type="button"></button>
+          <div class="popup__align">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup-form">
+              <fieldset class="popup-form__inputs">
+                <input class="popup-form__input" type="text" name="name" id="name" placeholder="Жак-Ив Кусто">
+                <input class="popup-form__input" type="text" name="information" id="information" placeholder="Исследователь океана">
+              </fieldset>
+              <button class="popup-form__button" type="submit" id="submit">Сохранить</button>
+            </form>
+          </div>
+        </div>
+      </div>
       <script src="scripts/index.js"></script>
     </div>
   </body>

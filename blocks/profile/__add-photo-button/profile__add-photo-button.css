@@ -3,7 +3,6 @@
   justify-self: flex-end;
   border: 2px solid #FFFFFF;
   box-sizing: border-box;
-  /*border-radius: 2px;*/
   width: 150px;
   height: 50px;
   padding: 14px 64px;
@@ -11,9 +10,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /*padding: 0px;*/
   margin: 0px;
-  font-size: 22px;
   cursor: pointer;
   background-position: center;
   background-color: transparent;
@@ -27,8 +24,8 @@
 
 @media screen and (max-width: 614px) {
   .profile__add-photo-button {
-    max-width: 282px;
-    max-height: 50px;
+    width: 282px;
+    height: 50px;
     padding: 17px 133px;
     font-size: 16px;
   }
