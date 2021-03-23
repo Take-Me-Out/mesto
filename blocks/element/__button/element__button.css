@@ -9,6 +9,7 @@
   border: none;
   background-image: url(../../../images/Heart.svg);
   align-self: center;
+  background-color: transparent;
 }
 
 .element__button:hover {
@@ -19,6 +20,5 @@
 .element__button:active {
   background-image: url(../../../images/BlackHeart.svg);
   outline: none;
-  background-color: transparent;
   opacity: 1;
 }

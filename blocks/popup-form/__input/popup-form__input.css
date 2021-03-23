@@ -11,6 +11,10 @@
   padding-bottom: 13px;
 }
 
+.popup-form__input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 .popup-form__input::placeholder {
   font-family: inherit;
   font-weight: normal;
