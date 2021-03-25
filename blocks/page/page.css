@@ -6,6 +6,9 @@
   -webkit-font-smoothing: antialiased;
   width: 100%;
   min-width: 900px;
+  min-height: 100vh;
+  flex-direction: column;
+  display: flex;
 }
 
 @media screen and (max-width: 899px) {
