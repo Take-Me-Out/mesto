@@ -20,7 +20,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
-  color: #000000;
+  color: #C4C4C4;
 }
 
 .popup-form__input::-webkit-input-placeholder {
@@ -28,7 +28,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
-  color: #000000;
+  color: #C4C4C4;
 }
 
 .popup-form__input::-moz-placeholder          {
@@ -36,7 +36,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
-  color: #000000;
+  color: #C4C4C4;
   opacity: 0.9;
 }
 
@@ -45,7 +45,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
-  color: #000000;
+  color: #C4C4C4;
 }
 
 @media screen and (max-width: 899px) {

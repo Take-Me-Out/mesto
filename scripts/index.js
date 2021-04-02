@@ -35,7 +35,6 @@ const initialCards = [
 const galleryTemplate = document.querySelector('.elements__template').content;
 const elements = document.querySelector('.elements');
 
-
 initialCards.forEach(function (item) {
   const galleryTemplateClone = galleryTemplate.cloneNode(true);
   galleryTemplateClone.querySelector('.element__city').textContent = item.name;
@@ -59,11 +58,15 @@ function openPopup() {
 let edit = document.querySelector('.profile__edit-button');
 edit.addEventListener('click', openPopup);
 
-let closeButton = document.querySelector('.popup__close-button');
+function close(item) {
+  item.classList.remove('popup_visible');
+}
+
+let closeButtonEdit = popup.querySelector('.popup__close-button');
 function closePopup() {
   popup.classList.remove('popup_visible');
 }
-closeButton.addEventListener('click', closePopup);
+closeButtonEdit.addEventListener('click', closePopup);
 
 let formElement = document.querySelector('.popup-form');
 function formSubmitHandler(evt) {
@@ -75,7 +78,41 @@ function formSubmitHandler(evt) {
 }
 formElement.addEventListener('submit', formSubmitHandler);
 
-//пользователь добавляет новые карточки
+//форма для добавления карточек открывается и закрывается
 
-const addPhoto = document.querySelector('profile__add-photo-button');
-addPhoto.addEventListener.apply('click', ) //ДОПИСАТЬ Ф-Ю ОТКРЫТИЯ ПОПАПА
+const popupAdd = document.querySelector('.popup-add');
+function openPopupAddCards() {
+  popupAdd.classList.add('popup_visible');
+}
+
+const addPhoto = document.querySelector('.profile__add-photo-button');
+addPhoto.addEventListener('click', openPopupAddCards);
+let closeButtonAdd = popupAdd.querySelector('.popup__close-button');
+function closePopupAdd() {
+  popupAdd.classList.remove('popup_visible');
+}
+closeButtonAdd.addEventListener('click', closePopupAdd);
+
+//добавление карточек
+const addButton = popupAdd.querySelector('.popup-form');
+
+function addCard(evt) {
+  evt.preventDefault();
+  const cardData = {
+    name: `${popupAdd.querySelector('.popup-form__input_id_place').value}`,
+    link: `${popupAdd.querySelector('.popup-form__input_id_link').value}`,
+    alt: `${popupAdd.querySelector('.popup-form__input_id_place').value}`
+  }
+  const galleryTemplateClone = galleryTemplate.cloneNode(true);
+  galleryTemplateClone.querySelector('.element__city').textContent = cardData.name;
+  galleryTemplateClone.querySelector('.element__photo').src = cardData.link;
+  galleryTemplateClone.querySelector('.element__photo').alt = cardData.alt;
+  elements.prepend(galleryTemplateClone);
+  closePopupAdd();
+}
+
+addButton.addEventListener('submit', addCard);
+
+//Поставить лайк
+
+
