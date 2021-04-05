@@ -1,4 +1,4 @@
-.element__button {
+.element__like-button {
   width: 22px;
   height: 19px;
   /*vertical-align: middle;*/
@@ -12,13 +12,13 @@
   background-color: transparent;
 }
 
-.element__button:hover {
+.element__like-button:hover {
   opacity: 0.5;
   outline: none;
 }
 
-.element__button:active {
+/*.element__like-button:active {
   background-image: url(../../../images/BlackHeart.svg);
   outline: none;
   opacity: 1;
-}
+}*/

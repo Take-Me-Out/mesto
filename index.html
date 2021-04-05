@@ -28,10 +28,11 @@
       <section class="elements">
         <template class="elements__template element">
           <div class="element">
+            <button class="element__delete-button" type="button" aria-label="Удалить карточку"></button>
             <img class="element__photo">
             <div class="element__caption">
               <h2 class="element__city"></h2>
-              <button class="element__button" type="submit" aria-label="Поставить лайк">
+              <button class="element__like-button" type="button" aria-label="Поставить лайк">
               </button>
             </div>
           </div>
@@ -40,7 +41,7 @@
           <img class="element__photo" src="images/Moscow.jpg" alt="Фотография Москвы">
           <div class="element__caption">
             <h2 class="element__city">Москва</h2>
-            <button class="element__button" type="submit" aria-label="Поставить лайк">
+            <button class="element__like-button" type="submit" aria-label="Поставить лайк">
             </button>
           </div>
         </div>
@@ -48,7 +49,7 @@
           <img class="element__photo" src="images/Peter.jpg" alt="Фотография Санкт-Петербурга">
           <div class="element__caption">
             <h2 class="element__city">Санкт-Петербург</h2>
-            <button class="element__button" type="submit" aria-label="Поставить лайк">
+            <button class="element__like-button" type="submit" aria-label="Поставить лайк">
             </button>
           </div>
         </div>
@@ -56,7 +57,7 @@
           <img class="element__photo" src="images/Kazan.jpg" alt="Фотография Казани">
           <div class="element__caption">
             <h2 class="element__city">Казань</h2>
-            <button class="element__button" type="submit" aria-label="Поставить лайк">
+            <button class="element__like-button" type="submit" aria-label="Поставить лайк">
             </button>
           </div>
         </div>
@@ -64,7 +65,7 @@
           <img class="element__photo" src="images/Kaliningrad.jpg" alt="Фотография Калининграда">
           <div class="element__caption">
             <h2 class="element__city">Калининград</h2>
-            <button class="element__button" type="submit" aria-label="Поставить лайк">
+            <button class="element__like-button" type="submit" aria-label="Поставить лайк">
             </button>
           </div>
         </div>
@@ -72,7 +73,7 @@
           <img class="element__photo" src="images/Vladivostok.jpg" alt="Фотография Владивостока">
           <div class="element__caption">
             <h2 class="element__city">Владивосток</h2>
-            <button class="element__button" type="submit" aria-label="Поставить лайк">
+            <button class="element__like-button" type="submit" aria-label="Поставить лайк">
             </button>
           </div>
         </div>
@@ -80,7 +81,7 @@
           <img class="element__photo" src="images/Sochi.jpg" alt="Фотография Сочи">
           <div class="element__caption">
             <h2 class="element__city">Сочи</h2>
-            <button class="element__button" type="submit" aria-label="Поставить лайк">
+            <button class="element__like-button" type="submit" aria-label="Поставить лайк">
             </button>
           </div>
         </div>-->
@@ -108,7 +109,7 @@
     </div>
     <div class="popup-add">
       <div class="popup-add__content">
-        <button class="popup__close-button" type="button" aria-label="Закрыть форму редактирования"></button>
+        <button class="popup__close-button" type="button" aria-label="Закрыть форму добавления фото"></button>
         <div class="popup__align">
           <h3 class="popup__title">Новое место</h3>
           <form class="popup-form" name="popup-form">
@@ -123,8 +124,17 @@
        </div>
       </div>
     </div>
-    <script src="scripts/index.js"></script>
   </div>
+  <div class="popup-photo">
+    <template class="popup-photo__template">
+      <div class="popup-photo__content">
+        <button class="popup__close-button" type="button" aria-label="Закрыть оригинал фотографии"></button>
+        <img class="popup-photo__image">
+        <p class="popup-photo__caption"></p>
+      </div>
+    </template>
+  </div>
+  <script src="scripts/index.js"></script>
 </body>
 
 </html>

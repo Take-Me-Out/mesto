@@ -34,14 +34,50 @@ const initialCards = [
 
 const galleryTemplate = document.querySelector('.elements__template').content;
 const elements = document.querySelector('.elements');
+const popupPhoto = document.querySelector('.popup-photo');
+
+/*function createCard() {
+  const galleryTemplateClone = galleryTemplate.cloneNode(true);
+  const cardTemplateTitle = galleryTemplateClone.querySelector('.element__city');
+  const cardTemplatePhoto = galleryTemplateClone.querySelector('.element__photo');
+  const cardTemplateAlt = galleryTemplateClone.querySelector('.element__city');
+  likeButton = galleryTemplateClone.querySelector('.element__like-button');
+  deleteButton
+}*/
 
 initialCards.forEach(function (item) {
   const galleryTemplateClone = galleryTemplate.cloneNode(true);
   galleryTemplateClone.querySelector('.element__city').textContent = item.name;
   galleryTemplateClone.querySelector('.element__photo').src = item.link;
   galleryTemplateClone.querySelector('.element__photo').alt = item.alt;
+  const initialLike = galleryTemplateClone.querySelector('.element__like-button');
+  const deleteButton = galleryTemplateClone.querySelector('.element__delete-button');
+  const cardImage = galleryTemplateClone.querySelector('.element__photo');
   elements.append(galleryTemplateClone);
-})
+  deleteButton.addEventListener('click', function() {
+    deleteButton.parentElement.remove();
+  })
+  initialLike.addEventListener('click', function() {
+    initialLike.style.backgroundImage = `url('images/BlackHeart.svg')`;
+  });
+  cardImage.addEventListener('click', function() {
+    //popupPhoto.classList.add('popup-photo_visible');
+    const popupTemplate = popupPhoto.querySelector('.popup-photo__template').content;
+    const popupTemplateClone = popupTemplate.cloneNode(true);
+    popupTemplateClone.querySelector('.popup-photo__image').name = cardImage.name;
+    popupTemplateClone.querySelector('.popup-photo__image').alt = cardImage.alt;
+    popupTemplateClone.querySelector('.popup-photo__image').src = cardImage.src;
+    const closePhotoButton = popupTemplateClone.querySelector('.popup__close-button');
+    const caption = popupTemplateClone.querySelector('.popup-photo__caption');
+    caption.textContent = popupTemplateClone.querySelector('.popup-photo__image').alt;
+    popupPhoto.append(popupTemplateClone);
+    popupPhoto.classList.add('popup-photo_visible');
+    function closePopup() {
+      popupPhoto.classList.remove('popup-photo_visible');
+    }
+    closePhotoButton.addEventListener('click', closePopup);
+  });
+});
 
 //пользователь редактирует профиль
 
@@ -107,12 +143,18 @@ function addCard(evt) {
   galleryTemplateClone.querySelector('.element__city').textContent = cardData.name;
   galleryTemplateClone.querySelector('.element__photo').src = cardData.link;
   galleryTemplateClone.querySelector('.element__photo').alt = cardData.alt;
+  const likeButton = galleryTemplateClone.querySelector('.element__like-button');
+  const deleteButton = galleryTemplateClone.querySelector('.element__delete-button');
   elements.prepend(galleryTemplateClone);
   closePopupAdd();
+  likeButton.addEventListener('click', function() {
+    likeButton.style.backgroundImage = `url('images/BlackHeart.svg')`;
+  });
+  deleteButton.addEventListener('click', function() {
+    deleteButton.parentElement.remove();
+  })
 }
 
 addButton.addEventListener('submit', addCard);
 
 //Поставить лайк
-
-
