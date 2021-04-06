@@ -58,15 +58,15 @@ initialCards.forEach(function (item) {
     deleteButton.parentElement.remove();
   })
   initialLike.addEventListener('click', function() {
-    initialLike.style.backgroundImage = `url('images/BlackHeart.svg')`;
+    initialLike.classList.toggle('element__like-button_active');
   });
   cardImage.addEventListener('click', function() {
-    //popupPhoto.classList.add('popup-photo_visible');
     const popupTemplate = popupPhoto.querySelector('.popup-photo__template').content;
     const popupTemplateClone = popupTemplate.cloneNode(true);
     popupTemplateClone.querySelector('.popup-photo__image').name = cardImage.name;
     popupTemplateClone.querySelector('.popup-photo__image').alt = cardImage.alt;
     popupTemplateClone.querySelector('.popup-photo__image').src = cardImage.src;
+    const popupTemplateImage = popupTemplateClone.querySelector('.popup-photo__image');
     const closePhotoButton = popupTemplateClone.querySelector('.popup__close-button');
     const caption = popupTemplateClone.querySelector('.popup-photo__caption');
     caption.textContent = popupTemplateClone.querySelector('.popup-photo__image').alt;
@@ -74,6 +74,10 @@ initialCards.forEach(function (item) {
     popupPhoto.classList.add('popup-photo_visible');
     function closePopup() {
       popupPhoto.classList.remove('popup-photo_visible');
+      caption.remove();
+      popupTemplateImage.remove();
+      closePhotoButton.remove();
+      popupTemplateClone.remove();
     }
     closePhotoButton.addEventListener('click', closePopup);
   });
@@ -145,16 +149,35 @@ function addCard(evt) {
   galleryTemplateClone.querySelector('.element__photo').alt = cardData.alt;
   const likeButton = galleryTemplateClone.querySelector('.element__like-button');
   const deleteButton = galleryTemplateClone.querySelector('.element__delete-button');
+  const cardImage = galleryTemplateClone.querySelector('.element__photo');
   elements.prepend(galleryTemplateClone);
   closePopupAdd();
-  likeButton.addEventListener('click', function() {
-    likeButton.style.backgroundImage = `url('images/BlackHeart.svg')`;
-  });
+  likeButton.addEventListener('click', function () {
+    likeButton.classList.toggle('element__like-button_active');
+  })
   deleteButton.addEventListener('click', function() {
     deleteButton.parentElement.remove();
   })
-}
+  cardImage.addEventListener('click', function() {
+    const popupTemplate = popupPhoto.querySelector('.popup-photo__template').content;
+    const popupTemplateClone = popupTemplate.cloneNode(true);
+    popupTemplateClone.querySelector('.popup-photo__image').name = cardImage.name;
+    popupTemplateClone.querySelector('.popup-photo__image').alt = cardImage.alt;
+    popupTemplateClone.querySelector('.popup-photo__image').src = cardImage.src;
+    const popupTemplateImage = popupTemplateClone.querySelector('.popup-photo__image');
+    const closePhotoButton = popupTemplateClone.querySelector('.popup__close-button');
+    const caption = popupTemplateClone.querySelector('.popup-photo__caption');
+    caption.textContent = popupTemplateClone.querySelector('.popup-photo__image').alt;
+    popupPhoto.append(popupTemplateClone);
+    popupPhoto.classList.add('popup-photo_visible');
+    function closePopup() {
+      popupPhoto.classList.remove('popup-photo_visible');
+      caption.remove();
+      popupTemplateImage.remove();
+      closePhotoButton.remove();
+      popupTemplateClone.remove();
+    }
+    closePhotoButton.addEventListener('click', closePopup);})
+  }
 
-addButton.addEventListener('submit', addCard);
-
-//Поставить лайк
+addButton.addEventListener('submit', addCard)
