@@ -3,7 +3,7 @@ const initialCards = [
   {
     name: 'Краснодар',
     link: 'https://images.unsplash.com/photo-1563221923-d90d0a7dcf89?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80',
-    alt: 'Фотография из Краснодарской области. Цветущие поля с подсолнухами'
+    alt: 'Цветущие поля с подсолнухами в Краснодарской области'
   },
   {
     name: 'Челябинская область',
@@ -36,15 +36,6 @@ const galleryTemplate = document.querySelector('.elements__template').content;
 const elements = document.querySelector('.elements');
 const popupPhoto = document.querySelector('.popup-photo');
 
-/*function createCard() {
-  const galleryTemplateClone = galleryTemplate.cloneNode(true);
-  const cardTemplateTitle = galleryTemplateClone.querySelector('.element__city');
-  const cardTemplatePhoto = galleryTemplateClone.querySelector('.element__photo');
-  const cardTemplateAlt = galleryTemplateClone.querySelector('.element__city');
-  likeButton = galleryTemplateClone.querySelector('.element__like-button');
-  deleteButton
-}*/
-
 initialCards.forEach(function (item) {
   const galleryTemplateClone = galleryTemplate.cloneNode(true);
   galleryTemplateClone.querySelector('.element__city').textContent = item.name;
@@ -67,17 +58,14 @@ initialCards.forEach(function (item) {
     popupTemplateClone.querySelector('.popup-photo__image').alt = cardImage.alt;
     popupTemplateClone.querySelector('.popup-photo__image').src = cardImage.src;
     const popupTemplateImage = popupTemplateClone.querySelector('.popup-photo__image');
-    const closePhotoButton = popupTemplateClone.querySelector('.popup__close-button');
+    const closePhotoButton = popupTemplateClone.querySelector('.popup-photo__close-button');
     const caption = popupTemplateClone.querySelector('.popup-photo__caption');
     caption.textContent = popupTemplateClone.querySelector('.popup-photo__image').alt;
     popupPhoto.append(popupTemplateClone);
     popupPhoto.classList.add('popup-photo_visible');
     function closePopup() {
       popupPhoto.classList.remove('popup-photo_visible');
-      caption.remove();
-      popupTemplateImage.remove();
-      closePhotoButton.remove();
-      popupTemplateClone.remove();
+      popupTemplateImage.parentElement.remove();
     }
     closePhotoButton.addEventListener('click', closePopup);
   });
@@ -113,7 +101,6 @@ function formSubmitHandler(evt) {
   evt.preventDefault();
   surname.textContent = oldName.value;
   information.textContent = oldInformation.value;
-  /*popup.classList.remove('popup_visible');*/
   closePopup();
 }
 formElement.addEventListener('submit', formSubmitHandler);
@@ -127,7 +114,7 @@ function openPopupAddCards() {
 
 const addPhoto = document.querySelector('.profile__add-photo-button');
 addPhoto.addEventListener('click', openPopupAddCards);
-let closeButtonAdd = popupAdd.querySelector('.popup__close-button');
+let closeButtonAdd = popupAdd.querySelector('.popup-add__close-button');
 function closePopupAdd() {
   popupAdd.classList.remove('popup_visible');
 }
@@ -165,17 +152,14 @@ function addCard(evt) {
     popupTemplateClone.querySelector('.popup-photo__image').alt = cardImage.alt;
     popupTemplateClone.querySelector('.popup-photo__image').src = cardImage.src;
     const popupTemplateImage = popupTemplateClone.querySelector('.popup-photo__image');
-    const closePhotoButton = popupTemplateClone.querySelector('.popup__close-button');
+    const closePhotoButton = popupTemplateClone.querySelector('.popup-photo__close-button');
     const caption = popupTemplateClone.querySelector('.popup-photo__caption');
     caption.textContent = popupTemplateClone.querySelector('.popup-photo__image').alt;
     popupPhoto.append(popupTemplateClone);
     popupPhoto.classList.add('popup-photo_visible');
     function closePopup() {
       popupPhoto.classList.remove('popup-photo_visible');
-      caption.remove();
-      popupTemplateImage.remove();
-      closePhotoButton.remove();
-      popupTemplateClone.remove();
+      popupTemplateImage.parentElement.remove();
     }
     closePhotoButton.addEventListener('click', closePopup);})
   }

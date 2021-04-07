@@ -17,8 +17,8 @@
   outline: none;
 }
 
-/*.element__like-button:active {
+.element__like-button:active {
   background-image: url(../../../images/BlackHeart.svg);
   outline: none;
   opacity: 1;
-}*/
+}

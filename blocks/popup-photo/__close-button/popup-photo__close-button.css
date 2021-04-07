@@ -1,4 +1,4 @@
-.popup__close-button {
+.popup-photo__close-button {
   color: #FFFFFF;
   height: 40px;
   width: 40px;
@@ -19,12 +19,12 @@
   outline: none;
 }
 
-.popup__close-button:hover {
+.popup-photo__close-button:hover {
   opacity: 0.6;
 }
 
 @media screen and (max-width: 614px) {
-  .popup__close-button {
+  .popup-photo__close-button {
     height: 26px;
     width: 26px;
     right: 0px;
