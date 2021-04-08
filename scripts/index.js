@@ -63,7 +63,7 @@ initialCards.forEach(function (item) {
     popupPhoto.classList.add('popup_visible');
     function closePopup() {
       popupPhoto.classList.remove('popup_visible');
-      popupTemplateImage.closest.remove();
+      popupPhotoImage.closest('.element').remove();
     }
   closePhotoButton.addEventListener('click', closePopup);
   });
@@ -135,16 +135,21 @@ function addCard(evt) {
   const likeButton = galleryTemplateClone.querySelector('.element__like-button');
   const deleteButton = galleryTemplateClone.querySelector('.element__delete-button');
   const cardImage = galleryTemplateClone.querySelector('.element__photo');
+  const cardText = galleryTemplateClone.querySelector('.element__city');
   elements.prepend(galleryTemplateClone);
   closePopupAdd();
   likeButton.addEventListener('click', function () {
     likeButton.classList.toggle('element__like-button_active');
   })
   deleteButton.addEventListener('click', function() {
-    deleteButton.closest.remove();
+    deleteButton.closest('.element').remove();
   })
+
+  const popupPhotoImage = document.querySelector('.popup__photo-image');
+  const popupPhotoCaption = document.querySelector('.popup__photo-caption');
+  const closePhotoButton = popupPhoto.querySelector('.popup__close-button');
   cardImage.addEventListener('click', function() {
-    const popupTemplate = popupPhoto.querySelector('.popup__photo-template').content;
+    /*const popupTemplate = popupPhoto.querySelector('.popup__photo-template').content;
     const popupTemplateClone = popupTemplate.cloneNode(true);
     popupTemplateClone.querySelector('.popup__photo-image').name = cardImage.name;
     popupTemplateClone.querySelector('.popup__photo-image').alt = cardImage.alt;
@@ -159,7 +164,17 @@ function addCard(evt) {
       popupPhoto.classList.remove('popup_visible');
       popupTemplateImage.closest.remove();
     }
-    closePhotoButton.addEventListener('click', closePopup);})
+    closePhotoButton.addEventListener('click', closePopup);*/
+    popupPhotoImage.src = cardImage.src;
+    popupPhotoImage.alt = cardImage.alt;
+    popupPhotoCaption.textContent = cardText.textContent;
+    popupPhoto.classList.add('popup_visible');
+    function closePopup() {
+      popupPhoto.classList.remove('popup_visible');
+      popupPhotoImage.closest.remove();
+    }
+  closePhotoButton.addEventListener('click', closePopup);
+    })
   }
 
 addButton.addEventListener('submit', addCard)
