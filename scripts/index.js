@@ -63,7 +63,9 @@ initialCards.forEach(function (item) {
     popupPhoto.classList.add('popup_visible');
     function closePopup() {
       popupPhoto.classList.remove('popup_visible');
-      popupPhotoImage.closest('.element').remove();
+      popupPhotoImage.src = "";
+      popupPhotoImage.alt = "";
+      popupPhotoCaption.textContent = "";
     }
   closePhotoButton.addEventListener('click', closePopup);
   });
@@ -171,7 +173,9 @@ function addCard(evt) {
     popupPhoto.classList.add('popup_visible');
     function closePopup() {
       popupPhoto.classList.remove('popup_visible');
-      popupPhotoImage.closest.remove();
+      popupPhotoImage.src = "";
+      popupPhotoImage.alt = "";
+      popupPhotoCaption.textContent = "";
     }
   closePhotoButton.addEventListener('click', closePopup);
     })
