@@ -35,40 +35,13 @@ const initialCards = [
 const galleryTemplate = document.querySelector('.elements__template').content;
 const elements = document.querySelector('.elements');
 const popupPhoto = document.querySelector('.popup_id_photo');
+const popupPhotoImage = document.querySelector('.popup__photo-image');
+const popupPhotoCaption = document.querySelector('.popup__photo-caption');
+const closePhotoButton = popupPhoto.querySelector('.popup__close-button');
 
 initialCards.forEach(function (item) {
-  const galleryTemplateClone = galleryTemplate.cloneNode(true);
-  galleryTemplateClone.querySelector('.element__city').textContent = item.name;
-  galleryTemplateClone.querySelector('.element__photo').src = item.link;
-  galleryTemplateClone.querySelector('.element__photo').alt = item.alt;
-  const initialLike = galleryTemplateClone.querySelector('.element__like-button');
-  const deleteButton = galleryTemplateClone.querySelector('.element__delete-button');
-  const cardImage = galleryTemplateClone.querySelector('.element__photo');
-  const cardText = galleryTemplateClone.querySelector('.element__city');
+  const galleryTemplateClone = createCard(item);
   elements.append(galleryTemplateClone);
-  deleteButton.addEventListener('click', function() {
-    deleteButton.closest('.element').remove();
-  })
-  initialLike.addEventListener('click', function() {
-    initialLike.classList.toggle('element__like-button_active');
-  });
-
-  const popupPhotoImage = document.querySelector('.popup__photo-image');
-  const popupPhotoCaption = document.querySelector('.popup__photo-caption');
-  const closePhotoButton = popupPhoto.querySelector('.popup__close-button');
-  cardImage.addEventListener('click', function() {
-    popupPhotoImage.src = cardImage.src;
-    popupPhotoImage.alt = cardImage.alt;
-    popupPhotoCaption.textContent = cardText.textContent;
-    popupPhoto.classList.add('popup_visible');
-    function closePopupPhoto() {
-      closePopup(popupPhoto);
-      popupPhotoImage.src = "";
-      popupPhotoImage.alt = "";
-      popupPhotoCaption.textContent = "";
-    }
-  closePhotoButton.addEventListener('click', closePopupPhoto);
-  });
 });
 
 //пользователь редактирует профиль
@@ -121,31 +94,19 @@ closeButtonAdd.addEventListener('click', function() {
 
 //добавление карточек
 const addButton = popupAdd.querySelector('.popup-form');
-
-const cardData = {
-  name: `${popupAdd.querySelector('.popup-form__input_id_place').value}`,
-  link: `${popupAdd.querySelector('.popup-form__input_id_link').value}`,
-  alt: `${popupAdd.querySelector('.popup-form__input_id_place').value}`
-}
+const zkusme = popupAdd.querySelector('.popup-form__input_id_link').value;
 
 function createCard(data) {
   const galleryTemplateClone = galleryTemplate.cloneNode(true);
-  galleryTemplateClone.querySelector('.element__city').textContent = data.name;
-  galleryTemplateClone.querySelector('.element__photo').src = data.link;
-  galleryTemplateClone.querySelector('.element__photo').alt = data.name;
-  return galleryTemplateClone;
-}
-
-const galleryTemplateClone = createCard(cardData);
-
-function addCard(evt) {
-  evt.preventDefault();
-  const likeButton = galleryTemplateClone.querySelector('.element__like-button');
-  const deleteButton = galleryTemplateClone.querySelector('.element__delete-button');
   const cardImage = galleryTemplateClone.querySelector('.element__photo');
   const cardText = galleryTemplateClone.querySelector('.element__city');
-  elements.prepend(galleryTemplateClone);
-  closePopup(popupAdd);
+  cardText.textContent = data.name;
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+  
+  const likeButton = galleryTemplateClone.querySelector('.element__like-button');
+  const deleteButton = galleryTemplateClone.querySelector('.element__delete-button');
+
   likeButton.addEventListener('click', function() {
     likeButton.classList.toggle('element__like-button_active');
   })
@@ -153,13 +114,10 @@ function addCard(evt) {
     deleteButton.closest('.element').remove();
   })
 
-  const popupPhotoImage = document.querySelector('.popup__photo-image');
-  const popupPhotoCaption = document.querySelector('.popup__photo-caption');
-  const closePhotoButton = popupPhoto.querySelector('.popup__close-button');
   cardImage.addEventListener('click', function() {
-    popupPhotoImage.src = cardImage.src;
-    popupPhotoImage.alt = cardImage.alt;
-    popupPhotoCaption.textContent = cardText.textContent;
+    popupPhotoImage.src = data.link;
+    popupPhotoImage.alt = data.alt;
+    popupPhotoCaption.textContent = data.name;
     openPopup(popupPhoto);
     function closePopupPhoto() {
       closePopup(popupPhoto);
@@ -167,8 +125,24 @@ function addCard(evt) {
       popupPhotoImage.alt = "";
       popupPhotoCaption.textContent = "";
     }
-  closePhotoButton.addEventListener('click', closePopupPhoto);
-    })
+    closePhotoButton.addEventListener('click', closePopupPhoto);
+  })
+  
+  return galleryTemplateClone;
+}
+
+//const galleryTemplateClone = createCard(cardData);
+
+function addCard(evt) {
+  evt.preventDefault();
+  const cardData = {
+    name: `${popupAdd.querySelector('.popup-form__input_id_place').value}`,
+    link: `${popupAdd.querySelector('.popup-form__input_id_link').value}`,
+    alt: `${popupAdd.querySelector('.popup-form__input_id_place').value}`,
   }
+  const galleryTemplateClone = createCard(cardData);
+  elements.prepend(galleryTemplateClone);
+  closePopup(popupAdd);
+}
 
 addButton.addEventListener('submit', addCard)
