@@ -119,26 +119,25 @@ function createCard(data) {
     popupPhotoImage.alt = data.alt;
     popupPhotoCaption.textContent = data.name;
     openPopup(popupPhoto);
-    function closePopupPhoto() {
-      closePopup(popupPhoto);
-      popupPhotoImage.src = "";
-      popupPhotoImage.alt = "";
-      popupPhotoCaption.textContent = "";
-    }
-    closePhotoButton.addEventListener('click', closePopupPhoto);
   })
+  function closePopupPhoto() {
+    closePopup(popupPhoto);
+  }
+  closePhotoButton.addEventListener('click', closePopupPhoto)
   
   return galleryTemplateClone;
 }
 
-//const galleryTemplateClone = createCard(cardData);
+const popupAddInputLink = popupAdd.querySelector('.popup-form__input_id_link');
+const popupAddInputName = popupAdd.querySelector('.popup-form__input_id_place');
+const popupAddInputAlt = popupAdd.querySelector('.popup-form__input_id_place');
 
 function addCard(evt) {
   evt.preventDefault();
   const cardData = {
-    name: `${popupAdd.querySelector('.popup-form__input_id_place').value}`,
-    link: `${popupAdd.querySelector('.popup-form__input_id_link').value}`,
-    alt: `${popupAdd.querySelector('.popup-form__input_id_place').value}`,
+    name: `${popupAddInputName.value}`,
+    link: `${popupAddInputLink.value}`,
+    alt: `${popupAddInputAlt.value}`,
   }
   const galleryTemplateClone = createCard(cardData);
   elements.prepend(galleryTemplateClone);
