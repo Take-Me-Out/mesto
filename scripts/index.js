@@ -120,13 +120,11 @@ function createCard(data) {
     popupPhotoCaption.textContent = data.name;
     openPopup(popupPhoto);
   })
-  function closePopupPhoto() {
-    closePopup(popupPhoto);
-  }
-  closePhotoButton.addEventListener('click', closePopupPhoto)
   
   return galleryTemplateClone;
 }
+
+closePhotoButton.addEventListener('click', () => closePopup(popupPhoto));
 
 const popupAddInputLink = popupAdd.querySelector('.popup-form__input_id_link');
 const popupAddInputName = popupAdd.querySelector('.popup-form__input_id_place');
