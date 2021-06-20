@@ -1,3 +1,7 @@
 .popup-form__input-error_active {
   visibility: visible;
+  position: relative;
+  bottom: 18px;
+  text-align: left;
+  align-self: flex-start;
 }
