@@ -62,11 +62,13 @@ const enableValidation = (config) => {
   })
 }
 
-enableValidation({
+const validationConfig = {
   formSelector: '.popup-form',
   inputSelector: '.popup-form__input',
   submitButtonSelector: '.popup-form__button',
   inactiveButtonClass: 'popup-form__button_inactive',
   inputErrorClass: 'popup-form__input_type_error',
   errorClass: 'popup-form__input-error_active'
- });
+ }
+
+enableValidation(validationConfig);
