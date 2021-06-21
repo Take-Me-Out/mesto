@@ -46,10 +46,10 @@ initialCards.forEach(function (item) {
 
 //пользователь редактирует профиль
 
-const surname = document.querySelector('.profile__name');
-const information = document.querySelector('.profile__information');
-const oldName = document.querySelector('.popup-form__input_id_name');
-const oldInformation = document.querySelector('.popup-form__input_id_information');
+const userName = document.querySelector('.profile__name');
+const userProfession = document.querySelector('.profile__information');
+const inputUserName = document.querySelector('.popup-form__input_id_name');
+const inputUserProfession = document.querySelector('.popup-form__input_id_information');
 const popup = document.querySelector('.popup');
 const popupEdit = document.querySelector('.popup_id_edit-profile');
 function openPopup(item) {
@@ -60,8 +60,8 @@ function closePopup(item) {
 }
 function openPopupProfile() {
   openPopup(popupEdit);
-  oldInformation.textContent = information.textContent;
-  oldName.textContent = surname.textContent;
+  inputUserProfession.textContent = userProfession.textContent;
+  inputUserName.textContent = userName.textContent;
 }
 const edit = document.querySelector('.profile__edit-button');
 edit.addEventListener('click', openPopupProfile);
@@ -79,8 +79,8 @@ popupEdit.addEventListener('click', (evt) => {
 const formElement = document.querySelector('.popup-form');
 function formSubmitHandler(evt) {
   evt.preventDefault();
-  surname.textContent = oldName.value;
-  information.textContent = oldInformation.value;
+  userName.textContent = inputUserName.value;
+  userProfession.textContent = inputUserProfession.value;
   closePopup(popupEdit);
 }
 formElement.addEventListener('submit', formSubmitHandler);
