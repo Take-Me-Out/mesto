@@ -60,6 +60,7 @@ const enableValidation = (config) => {
     setEventListeners(formElement, config);
     });
   })
+  config.formSelector.reset;
 }
 
 const validationConfig = {

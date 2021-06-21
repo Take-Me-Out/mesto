@@ -54,9 +54,12 @@ const popup = document.querySelector('.popup');
 const popupEdit = document.querySelector('.popup_id_edit-profile');
 function openPopup(item) {
   item.classList.add('popup_visible');
+  document.addEventListener('keydown', closePopupByEsc);
 }
 function closePopup(item) {
   item.classList.remove('popup_visible');
+  document.removeEventListener('keydown', closePopupByEsc);
+  
 }
 function openPopupProfile() {
   openPopup(popupEdit);
@@ -166,8 +169,13 @@ addButton.addEventListener('submit', addCard)
    const popupVisible = document.querySelector('.popup_visible');
    closePopup(popupVisible);
  }
- document.addEventListener('keydown', (evt) => {
+ /*document.addEventListener('keydown', (evt) => {
   if (evt.key==='Escape') {
      closePopupByEsc();
+     document.removeEventListener('keydown', (evt) => {
+      if (evt.key==='Escape') {
+         closePopupByEsc();
+       }
+     });
    }
- });
+ });*/
