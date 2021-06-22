@@ -53,14 +53,15 @@ const inputUserProfession = document.querySelector('.popup-form__input_id_inform
 const popup = document.querySelector('.popup');
 const popupEdit = document.querySelector('.popup_id_edit-profile');
 function openPopup(item) {
-  /*const closeForm = item.querySelector('.popup-form');
-  closeForm.reset();*/
   item.classList.add('popup_visible');
+  enableValidation(validationConfig);
   document.addEventListener('keydown', closePopupByEsc);
 }
 function closePopup(item) {
   item.classList.remove('popup_visible');
   document.removeEventListener('keydown', closePopupByEsc);
+  const closeForm = item.querySelector('.popup-form');
+  closeForm.reset();
 }
 function openPopupProfile() {
   openPopup(popupEdit);
