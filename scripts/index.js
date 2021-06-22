@@ -16,7 +16,7 @@ const userName = document.querySelector('.profile__name');
 const userProfession = document.querySelector('.profile__information');
 const inputUserName = document.querySelector('.popup-form__input_id_name');
 const inputUserProfession = document.querySelector('.popup-form__input_id_information');
-const popup = document.querySelector('.popup');
+
 const popupEdit = document.querySelector('.popup_id_edit-profile');
 function openPopup(item) {
   item.classList.add('popup_visible');
@@ -26,8 +26,10 @@ function openPopup(item) {
 function closePopup(item) {
   item.classList.remove('popup_visible');
   document.removeEventListener('keydown', closePopupByEsc);
-  const closeForm = item.querySelector('.popup-form');
-  closeForm.reset();
+  if (item.classList.contains('popup_id_edit-profile') || (item.classList.contains('popup_id_add-card'))) {
+    const closeForm = item.querySelector('.popup-form');
+    closeForm.reset();
+  }
 }
 function openPopupProfile() {
   openPopup(popupEdit);
@@ -37,7 +39,7 @@ function openPopupProfile() {
 const edit = document.querySelector('.profile__edit-button');
 edit.addEventListener('click', openPopupProfile);
 
-const closeButtonEdit = popup.querySelector('.popup__close-button');
+const closeButtonEdit = document.querySelector('.popup__close-button');
 closeButtonEdit.addEventListener('click', function() {
   closePopup(popupEdit)
 });
