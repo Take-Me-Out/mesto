@@ -29,6 +29,10 @@ function closePopup(item) {
   if (item.classList.contains('popup_id_edit-profile') || (item.classList.contains('popup_id_add-card'))) {
     const closeForm = item.querySelector('.popup-form');
     closeForm.reset();
+    const errorList = Array.from(closeForm.querySelectorAll('.popup-form__input-error_active'));
+    errorList.forEach((errorElement) => {
+      errorElement.classList.remove('popup-form__input-error_active');
+        })
   }
 }
 function openPopupProfile() {
