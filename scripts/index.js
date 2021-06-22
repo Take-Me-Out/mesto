@@ -49,14 +49,14 @@ popupEdit.addEventListener('click', (evt) => {
   }
 });
 
-const formElement = document.querySelector('.popup-form');
+const formEditProfile = document.querySelector('.popup-form_id_edit-profile');
 function submitEditProfileForm(evt) {
   evt.preventDefault();
   userName.textContent = inputUserName.value;
   userProfession.textContent = inputUserProfession.value;
   closePopup(popupEdit);
 }
-formElement.addEventListener('submit', submitEditProfileForm);
+formEditProfile.addEventListener('submit', submitEditProfileForm);
 
 //форма для добавления карточек открывается и закрывается
 
@@ -76,7 +76,7 @@ popupAdd.addEventListener('click', (evt) => {
 });
 
 //добавление карточек
-const addButton = popupAdd.querySelector('.popup-form');
+const formAddCard = popupAdd.querySelector('.popup-form_id_add-card');
 const inputLink = popupAdd.querySelector('.popup-form__input_id_link').value;
 
 function createCard(data) {
@@ -131,7 +131,7 @@ function addCard(evt) {
   closePopup(popupAdd);
 }
 
-addButton.addEventListener('submit', addCard)
+formAddCard.addEventListener('submit', addCard)
 
 // Закрываем попап через Esc
 
