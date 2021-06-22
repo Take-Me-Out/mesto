@@ -53,13 +53,14 @@ const inputUserProfession = document.querySelector('.popup-form__input_id_inform
 const popup = document.querySelector('.popup');
 const popupEdit = document.querySelector('.popup_id_edit-profile');
 function openPopup(item) {
+  /*const closeForm = item.querySelector('.popup-form');
+  closeForm.reset();*/
   item.classList.add('popup_visible');
   document.addEventListener('keydown', closePopupByEsc);
 }
 function closePopup(item) {
   item.classList.remove('popup_visible');
   document.removeEventListener('keydown', closePopupByEsc);
-  
 }
 function openPopupProfile() {
   openPopup(popupEdit);
@@ -80,13 +81,13 @@ popupEdit.addEventListener('click', (evt) => {
 });
 
 const formElement = document.querySelector('.popup-form');
-function formSubmitHandler(evt) {
+function submitEditProfileForm(evt) {
   evt.preventDefault();
   userName.textContent = inputUserName.value;
   userProfession.textContent = inputUserProfession.value;
   closePopup(popupEdit);
 }
-formElement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', submitEditProfileForm);
 
 //форма для добавления карточек открывается и закрывается
 
@@ -107,7 +108,7 @@ popupAdd.addEventListener('click', (evt) => {
 
 //добавление карточек
 const addButton = popupAdd.querySelector('.popup-form');
-const zkusme = popupAdd.querySelector('.popup-form__input_id_link').value;
+const inputLink = popupAdd.querySelector('.popup-form__input_id_link').value;
 
 function createCard(data) {
   const galleryTemplateClone = galleryTemplate.cloneNode(true);
@@ -165,17 +166,9 @@ addButton.addEventListener('submit', addCard)
 
 // Закрываем попап через Esc
 
- function closePopupByEsc () {
-   const popupVisible = document.querySelector('.popup_visible');
-   closePopup(popupVisible);
- }
- /*document.addEventListener('keydown', (evt) => {
+ function closePopupByEsc (evt) {
   if (evt.key==='Escape') {
-     closePopupByEsc();
-     document.removeEventListener('keydown', (evt) => {
-      if (evt.key==='Escape') {
-         closePopupByEsc();
-       }
-     });
-   }
- });*/
+    const popupVisible = document.querySelector('.popup_visible');
+    closePopup(popupVisible);
+  }
+ }
