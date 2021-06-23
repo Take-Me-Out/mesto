@@ -20,7 +20,6 @@ const inputUserProfession = document.querySelector('.popup-form__input_id_inform
 const popupEdit = document.querySelector('.popup_id_edit-profile');
 function openPopup(item) {
   item.classList.add('popup_visible');
-  enableValidation(validationConfig);
   document.addEventListener('keydown', closePopupByEsc);
 }
 function closePopup(item) {
@@ -62,7 +61,7 @@ formEditProfile.addEventListener('submit', submitEditProfileForm);
 const popupAdd = document.querySelector('.popup_id_add-card');
 const addPhoto = document.querySelector('.profile__add-photo-button');
 addPhoto.addEventListener('click', function() {
-  openPopup(popupAdd)
+  openPopup(popupAdd);
 });
 const closeButtonAdd = popupAdd.querySelector('.popup__close-button');
 closeButtonAdd.addEventListener('click', function() {
@@ -142,4 +141,5 @@ formAddCard.addEventListener('submit', addCard)
     const popupVisible = document.querySelector('.popup_visible');
     closePopup(popupVisible);
   }
+  
  }

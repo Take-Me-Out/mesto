@@ -68,7 +68,10 @@ function resetForm(item, config) {
   const errorList = Array.from(closeForm.querySelectorAll(config.errorClass));
   errorList.forEach((errorElement) => {
     errorElement.classList.remove(config.errorClass);
-      })
+      });
+  const buttonElement = item.querySelector(config.submitButtonSelector);
+  const inputList = Array.from(item.querySelectorAll(config.inputSelector));
+  toggleButtonState(inputList, buttonElement, config);
 }
 
 const validationConfig = {
@@ -80,4 +83,4 @@ const validationConfig = {
   errorClass: 'popup-form__input-error_active'
  }
 
-enableValidation(validationConfig);
+enableValidation(validationConfig)
