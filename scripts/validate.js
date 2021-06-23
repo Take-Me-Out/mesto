@@ -62,6 +62,15 @@ const enableValidation = (config) => {
   })
 }
 
+function resetForm(item, config) {
+  const closeForm = item.querySelector(config.formSelector);
+  closeForm.reset();
+  const errorList = Array.from(closeForm.querySelectorAll(config.errorClass));
+  errorList.forEach((errorElement) => {
+    errorElement.classList.remove(config.errorClass);
+      })
+}
+
 const validationConfig = {
   formSelector: '.popup-form',
   inputSelector: '.popup-form__input',

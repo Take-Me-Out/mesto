@@ -26,14 +26,6 @@ function openPopup(item) {
 function closePopup(item) {
   item.classList.remove('popup_visible');
   document.removeEventListener('keydown', closePopupByEsc);
-  if (item.classList.contains('popup_id_edit-profile') || (item.classList.contains('popup_id_add-card'))) {
-    const closeForm = item.querySelector('.popup-form');
-    closeForm.reset();
-    const errorList = Array.from(closeForm.querySelectorAll('.popup-form__input-error_active'));
-    errorList.forEach((errorElement) => {
-      errorElement.classList.remove('popup-form__input-error_active');
-        })
-  }
 }
 function openPopupProfile() {
   openPopup(popupEdit);
@@ -45,11 +37,13 @@ edit.addEventListener('click', openPopupProfile);
 
 const closeButtonEdit = document.querySelector('.popup__close-button');
 closeButtonEdit.addEventListener('click', function() {
-  closePopup(popupEdit)
+  closePopup(popupEdit);
+  resetForm(popupEdit, validationConfig);
 });
 popupEdit.addEventListener('click', (evt) => {
   if (evt.target.classList.contains('popup')) {
     closePopup(popupEdit);
+    resetForm(popupEdit, validationConfig);
   }
 });
 
@@ -59,6 +53,7 @@ function submitEditProfileForm(evt) {
   userName.textContent = inputUserName.value;
   userProfession.textContent = inputUserProfession.value;
   closePopup(popupEdit);
+  resetForm(popupEdit, validationConfig);
 }
 formEditProfile.addEventListener('submit', submitEditProfileForm);
 
@@ -72,10 +67,12 @@ addPhoto.addEventListener('click', function() {
 const closeButtonAdd = popupAdd.querySelector('.popup__close-button');
 closeButtonAdd.addEventListener('click', function() {
   closePopup(popupAdd);
+  resetForm(popupAdd, validationConfig);
 });
 popupAdd.addEventListener('click', (evt) => {
   if (evt.target.classList.contains('popup')) {
     closePopup(popupAdd);
+    resetForm(popupAdd, validationConfig);
   }
 });
 
@@ -133,6 +130,7 @@ function addCard(evt) {
   const galleryTemplateClone = createCard(cardData);
   elements.prepend(galleryTemplateClone);
   closePopup(popupAdd);
+  resetForm(popupAdd, validationConfig);
 }
 
 formAddCard.addEventListener('submit', addCard)
