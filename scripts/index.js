@@ -31,8 +31,8 @@ function openPopupProfile() {
   inputUserProfession.value = userProfession.textContent;
   inputUserName.value = userName.textContent;
 }
-const edit = document.querySelector('.profile__edit-button');
-edit.addEventListener('click', openPopupProfile);
+const openEditProfileButton = document.querySelector('.profile__edit-button');
+openEditProfileButton.addEventListener('click', openPopupProfile);
 
 const closeButtonEdit = document.querySelector('.popup__close-button');
 closeButtonEdit.addEventListener('click', function() {
