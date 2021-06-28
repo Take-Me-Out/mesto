@@ -143,3 +143,34 @@ formAddCard.addEventListener('submit', addCard)
   }
   
  }
+
+ /*class Card {
+   constructor() {
+     
+   }
+
+   createCard = (data) => {
+    const galleryTemplateClone = galleryTemplate.cloneNode(true);
+    const cardImage = galleryTemplateClone.querySelector('.element__photo');
+    const cardText = galleryTemplateClone.querySelector('.element__city');
+    cardText.textContent = data.name;
+    cardImage.src = data.link;
+    cardImage.alt = data.name;
+    
+    const likeButton = galleryTemplateClone.querySelector('.element__like-button');
+    const deleteButton = galleryTemplateClone.querySelector('.element__delete-button');
+  
+    likeButton.addEventListener('click', function() {
+      likeButton.classList.toggle('element__like-button_active');
+    })
+    deleteButton.addEventListener('click', function() {
+      deleteButton.closest('.element').remove();
+    })
+    }
+  }
+
+ initialCards.forEach(function (item) {
+  const card = new Card(item)
+  const galleryTemplateClone = card.createCard(item);
+  elements.append(galleryTemplateClone);
+});*/
