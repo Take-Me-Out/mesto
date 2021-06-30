@@ -1,3 +1,4 @@
+export { FormValidation, validationConfig };
 //Валидация форм
 
 /*const showInputError = (formElement, inputElement, errorMessage, config) => {
@@ -149,7 +150,6 @@ class FormValidation {
   }
 
   enableValidation = (data) => {
-    //const formList = Array.from(document.querySelectorAll(this._formSelector));
     this._formList.forEach((formElement) => {
       formElement.addEventListener('submit', (evt) => {
         evt.preventDefault();
@@ -158,6 +158,18 @@ class FormValidation {
     this._formList.forEach((formElement) => {
       this._setEventListeners(formElement, data);
       });
+  }
+
+  resetForm = (item, data) => {
+    const closeForm = item.querySelector(this._formSelector);
+    closeForm.reset();
+    const errorList = Array.from(closeForm.querySelectorAll(this._errorClass));
+    errorList.forEach((errorElement) => {
+      errorElement.classList.remove(this._errorClass);
+        });
+    const buttonElement = item.querySelector(this._submitButtonSelector);
+    const inputList = Array.from(item.querySelectorAll(this._inputSelector));
+    this._toggleButtonState(inputList, buttonElement, data);
   }
 }
 
