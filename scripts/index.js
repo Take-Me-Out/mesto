@@ -123,9 +123,9 @@ function closePopupByEsc (evt) {
 
 formAddCard.addEventListener('submit', () => {
   const cardData = {
-    name: `${cardConfig.popupAddInputName.value}`,
-    link: `${cardConfig.popupAddInputLink.value}`,
-    alt: `${cardConfig.popupAddInputAlt.value}`,
+    name: cardConfig.popupAddInputName.value,
+    link: cardConfig.popupAddInputLink.value,
+    alt: cardConfig.popupAddInputAlt.value,
   }
   const card = new Card(cardData, cardConfig);
   const cardElement = card.createCard();
