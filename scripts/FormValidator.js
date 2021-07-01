@@ -1,4 +1,3 @@
-export { FormValidation, validationConfig };
 //Валидация форм
 
 /*const showInputError = (formElement, inputElement, errorMessage, config) => {
@@ -75,18 +74,11 @@ function resetForm(item, config) {
   toggleButtonState(inputList, buttonElement, config);
 }*/
 
-const validationConfig = {
-  formSelector: '.popup-form',
-  inputSelector: '.popup-form__input',
-  submitButtonSelector: '.popup-form__button',
-  inactiveButtonClass: 'popup-form__button_inactive',
-  inputErrorClass: 'popup-form__input_type_error',
-  errorClass: 'popup-form__input-error_active'
- }
+
 
 /*enableValidation(validationConfig);*/
 
-class FormValidation {
+export default class FormValidation {
   constructor(data, inputForm) {
     this._formSelector = data.formSelector;
     this._inputSelector = data.inputSelector;
@@ -99,25 +91,25 @@ class FormValidation {
     this._data = data;
   }
 
-  _showInputError = (formElement, inputElement, errorMessage, data) => {
+  _showInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(this._inputErrorClass);
     errorElement.textContent = errorMessage;
     errorElement.classList.add(this._errorClass);
   }
 
-  _hideInputError = (formElement, inputElement, data) => {
+  _hideInputError = (formElement, inputElement) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.textContent = '';
     errorElement.classList.remove(this._errorClass);
   }
 
-  _isValid = (formElement, inputElement, data) => {
+  _isValid = (formElement, inputElement) => {
     if (!inputElement.validity.valid) {
-      this._showInputError(formElement, inputElement, inputElement.validationMessage, data);
+      this._showInputError(formElement, inputElement, inputElement.validationMessage);
     } else {
-      this._hideInputError(formElement, inputElement, data);
+      this._hideInputError(formElement, inputElement);
     }
   }
 
@@ -127,7 +119,7 @@ class FormValidation {
     })
   }
 
-  _toggleButtonState = (inputList, buttonElement, data) => {
+  _toggleButtonState = (inputList, buttonElement) => {
     if (this._hasInvalidInput(inputList)) {
       buttonElement.classList.add(this._inactiveButtonClass);
       buttonElement.setAttribute('disabled', true);
@@ -137,30 +129,30 @@ class FormValidation {
     }
   }
 
-  _setEventListeners = (formElement, data) => {
+  _setEventListeners = (formElement) => {
     const inputList = Array.from(formElement.querySelectorAll(this._inputSelector));
     const buttonElement = formElement.querySelector(this._submitButtonSelector);
-    this._toggleButtonState(inputList, buttonElement, data);
+    this._toggleButtonState(inputList, buttonElement);
     inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
-        this._isValid(formElement, inputElement, data);
-        this._toggleButtonState(inputList, buttonElement, data);
+        this._isValid(formElement, inputElement);
+        this._toggleButtonState(inputList, buttonElement);
       });
     });
   }
 
-  enableValidation = (data) => {
+  enableValidation = () => {
     this._formList.forEach((formElement) => {
       formElement.addEventListener('submit', (evt) => {
         evt.preventDefault();
       });
     });
     this._formList.forEach((formElement) => {
-      this._setEventListeners(formElement, data);
+      this._setEventListeners(formElement);
       });
   }
 
-  resetForm = (item, data) => {
+  resetForm = (item) => {
     const closeForm = item.querySelector(this._formSelector);
     closeForm.reset();
     const errorList = Array.from(closeForm.querySelectorAll(this._errorClass));
@@ -169,11 +161,6 @@ class FormValidation {
         });
     const buttonElement = item.querySelector(this._submitButtonSelector);
     const inputList = Array.from(item.querySelectorAll(this._inputSelector));
-    this._toggleButtonState(inputList, buttonElement, data);
+    this._toggleButtonState(inputList, buttonElement);
   }
 }
-
-const editProfileFormValidate = new FormValidation(validationConfig, validationConfig.formSelector);
-const addCardFormValidate = new FormValidation(validationConfig, validationConfig.formSelector);
-editProfileFormValidate.enableValidation(validationConfig);
-addCardFormValidate.enableValidation(validationConfig);

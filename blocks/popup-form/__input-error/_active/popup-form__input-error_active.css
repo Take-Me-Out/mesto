@@ -3,5 +3,18 @@
   position: relative;
   bottom: 18px;
   text-align: left;
+  width: 358px;
   align-self: flex-start;
+}
+
+@media screen and (max-width: 899px) {
+  .popup-form__input-error_active {
+    width: 306px;
+  }
+}
+
+@media screen and (max-width: 614px) {
+  .popup-form__input-error_active {
+    width: 238px;
+  }
 }

@@ -6,4 +6,17 @@
   line-height: 15px;
   color: #FF0000;
   visibility: hidden;
+  width: 358px;
+}
+
+@media screen and (max-width: 899px) {
+  .popup-form__input-error {
+    width: 306px;
+  }
+}
+
+@media screen and (max-width: 614px) {
+  .popup-form__input-error {
+    width: 238px;
+  }
 }
