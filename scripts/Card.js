@@ -68,23 +68,42 @@ export default class Card {
       this._closePopup(popupVisible);
      }
     }
-    
+  
+  _createPhoto = (photoElement) => {
+    const popupPhotoImage = document.querySelector('.popup__photo-image');
+    popupPhotoImage.src = photoElement.src;
+    popupPhotoImage.alt = photoElement.alt;
+  }
+
+  _createText = (textElement) => {
+    const popupPhotoCaption = document.querySelector('.popup__photo-caption');
+    popupPhotoCaption.textContent = textElement.textContent;
+  }
+  
+  _setEventListeners = (item, photoElement, textElement) => {
+    item.addEventListener('click', () => {this._createPhoto(photoElement)});
+    item.addEventListener('click', () => {this._createText(textElement)});
+    item.addEventListener('click', () => {this._openPopup(this._popupPhotoElement)});
+  }
 
   createCard = () => {
     this._element = this._createTemplate();
-    this._element.querySelector(this._cardImage).src = this._image; 
-    this._element.querySelector(this._cardText).textContent = this._text; 
-    this._element.querySelector(this._cardImage).alt = this._alt; 
-    //this._setButtonEventListeners();
+    const cardPhotoElement = this._element.querySelector(this._cardImage);
+    const cardTextElement = this._element.querySelector(this._cardText);
+    cardPhotoElement.src = this._image; 
+    cardTextElement.textContent = this._text; 
+    cardPhotoElement.alt = this._alt; 
     //открытие попапа с карточкой
-    const popupPhotoImage = document.querySelector('.popup__photo-image');
+    /*const popupPhotoImage = document.querySelector('.popup__photo-image');
     const popupPhotoCaption = document.querySelector('.popup__photo-caption'); 
     this._element.querySelector(this._cardImage).addEventListener('click', () => {
       popupPhotoImage.src = this._image;
       popupPhotoImage.alt = this._text;
       popupPhotoCaption.textContent = this._text;
-      this._openPopup(this._popupPhotoElement);
-    });
+      this._openPopup(this._popupPhotoElement);  });*/
+    const clickPhoto = this._element.querySelector(this._cardImage);
+    this._setEventListeners(clickPhoto, cardPhotoElement, cardTextElement);
+    
 
     const closePhotoButton = this._popupPhotoElement.querySelector('.popup__close-button');
     closePhotoButton.addEventListener('click', () => this._closePopup(this._popupPhotoElement));
