@@ -64,6 +64,7 @@ function openPopup(item) {
 function closePopup(item) {
   item.classList.remove('popup_visible');
   document.removeEventListener('keydown', closePopupByEsc);
+  newValidation.resetForm(item);
 }
 function openPopupProfile() {
   openPopup(popupEdit);
