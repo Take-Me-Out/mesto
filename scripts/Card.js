@@ -32,7 +32,7 @@ export default class Card {
     this.alt = data.alt
   }
 
-  _setButtonEventListeners = () => {
+  /*_setButtonEventListeners = () => {
     const likeButton = this._element.querySelector(this._likeButton);
     likeButton.addEventListener('click', () => {
       likeButton.classList.toggle(this._likeButtonActive);
@@ -41,7 +41,7 @@ export default class Card {
     deleteButton.addEventListener('click', () => {
       deleteButton.closest(this._appendElement).remove();
       });
-    }
+    }*/
 
   _createTemplate = () => {
     const cardElement = document
@@ -68,13 +68,14 @@ export default class Card {
       this._closePopup(popupVisible);
      }
     }
+    
 
   createCard = () => {
     this._element = this._createTemplate();
     this._element.querySelector(this._cardImage).src = this._image; 
     this._element.querySelector(this._cardText).textContent = this._text; 
     this._element.querySelector(this._cardImage).alt = this._alt; 
-    this._setButtonEventListeners();
+    //this._setButtonEventListeners();
     //открытие попапа с карточкой
     const popupPhotoImage = document.querySelector('.popup__photo-image');
     const popupPhotoCaption = document.querySelector('.popup__photo-caption'); 

@@ -119,6 +119,17 @@ function closePopupByEsc (evt) {
    }
   }
 
+function setButtonEventListeners(cardElement) {
+  const likeButton = cardElement.querySelector(cardConfig.likeButton);
+  likeButton.addEventListener('click', () => {
+    likeButton.classList.toggle(cardConfig.likeButtonActive);
+  });
+  const deleteButton = cardElement.querySelector(cardConfig.deleteButton);
+  deleteButton.addEventListener('click', () => {
+    deleteButton.closest(cardConfig.element).remove();
+    });
+  }
+
 //добавление карточек
 
 formAddCard.addEventListener('submit', () => {
@@ -129,6 +140,7 @@ formAddCard.addEventListener('submit', () => {
   }
   const card = new Card(cardData, cardConfig);
   const cardElement = card.createCard();
+  setButtonEventListeners(cardElement);
   document.querySelector('.elements').prepend(cardElement);
   closePopup(popupAdd);
   newValidation.resetForm(popupAdd);
@@ -142,5 +154,6 @@ addCardFormValidate.enableValidation(validationConfig);
 initialCards.forEach(function(item) {
   const card = new Card(item, cardConfig);
   const cardElement = card.createCard();
+  setButtonEventListeners(cardElement);
   document.querySelector('.elements').append(cardElement);
 });
