@@ -138,7 +138,7 @@ formAddCard.addEventListener('submit', () => {
     link: cardConfig.popupAddInputLink.value,
     alt: cardConfig.popupAddInputAlt.value,
   }
-  const card = new Card(cardData, cardConfig);
+  const card = new Card(cardData, '.elements__template');
   const cardElement = card.createCard();
   setButtonEventListeners(cardElement);
   document.querySelector('.elements').prepend(cardElement);
@@ -152,7 +152,7 @@ addCardFormValidate.enableValidation(validationConfig);
 //добавление оригинальных карточек
 
 initialCards.forEach(function(item) {
-  const card = new Card(item, cardConfig);
+  const card = new Card(item, '.elements__template');
   const cardElement = card.createCard();
   setButtonEventListeners(cardElement);
   document.querySelector('.elements').append(cardElement);
