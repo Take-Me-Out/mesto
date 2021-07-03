@@ -1,3 +1,4 @@
+import { closePopup, openPopup } from "./index.js";
 export default class Card {
   constructor(data, template) {
     this._template = template,
@@ -29,7 +30,7 @@ export default class Card {
     return cardElement;
   }
 
-  _openPopup = (item) => {
+  /*_openPopup = (item) => {
     item.classList.add('popup_visible');
     document.addEventListener('keydown', this._closePopupByEsc);
   }
@@ -37,12 +38,12 @@ export default class Card {
   _closePopup = (item) => {
     item.classList.remove('popup_visible');
     document.removeEventListener('keydown', this._closePopupByEsc);
-  }
+  }*/
 
   _closePopupByEsc = (evt) => {
     if (evt.key==='Escape') {
       const popupVisible = document.querySelector('.popup_visible');
-      this._closePopup(popupVisible);
+      closePopup(popupVisible);
      }
     }
   
@@ -61,7 +62,7 @@ export default class Card {
     const popupPhotoElement = document.querySelector('.popup_id_photo');
     item.addEventListener('click', () => {this._createPhoto(photoElement)});
     item.addEventListener('click', () => {this._createText(textElement)});
-    item.addEventListener('click', () => {this._openPopup(popupPhotoElement)});
+    item.addEventListener('click', () => {openPopup(popupPhotoElement)});
   }
 
   createCard = () => {
@@ -72,23 +73,16 @@ export default class Card {
     cardTextElement.textContent = this._text; 
     cardPhotoElement.alt = this._alt; 
     //открытие попапа с карточкой
-    /*const popupPhotoImage = document.querySelector('.popup__photo-image');
-    const popupPhotoCaption = document.querySelector('.popup__photo-caption'); 
-    this._element.querySelector(this._cardImage).addEventListener('click', () => {
-      popupPhotoImage.src = this._image;
-      popupPhotoImage.alt = this._text;
-      popupPhotoCaption.textContent = this._text;
-      this._openPopup(this._popupPhotoElement);  });*/
     const clickPhoto = this._element.querySelector('.element__photo');
     this._setEventListeners(clickPhoto, cardPhotoElement, cardTextElement);
     
 
     const popupPhotoElement = document.querySelector('.popup_id_photo');
     const closePhotoButton = popupPhotoElement.querySelector('.popup__close-button');
-    closePhotoButton.addEventListener('click', () => this._closePopup(popupPhotoElement));
+    closePhotoButton.addEventListener('click', () => closePopup(popupPhotoElement));
     popupPhotoElement.addEventListener('click', (evt) => {
       if (evt.target.classList.contains('popup')) {
-      this._closePopup(popupPhotoElement);
+      closePopup(popupPhotoElement);
     }
   });
 

@@ -1,6 +1,7 @@
 import FormValidation from './FormValidator.js';
 import {initialCards} from './initial-сards.js';
 import Card from './Card.js';
+export {closePopup, openPopup}
 
 const cardConfig = {
   elements: document.querySelector('.elements'),
@@ -81,7 +82,6 @@ closeButtonEdit.addEventListener('click', function() {
 popupEdit.addEventListener('click', (evt) => {
   if (evt.target.classList.contains('popup')) {
     closePopup(popupEdit);
-    newValidation.resetForm(popupEdit);
   }
 });
 
@@ -90,7 +90,6 @@ function submitEditProfileForm(evt) {
   userName.textContent = inputUserName.value;
   userProfession.textContent = inputUserProfession.value;
   closePopup(popupEdit);
-  newValidation.resetForm(popupEdit);
 }
 formEditProfile.addEventListener('submit', submitEditProfileForm);
 
