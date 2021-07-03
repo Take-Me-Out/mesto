@@ -76,10 +76,10 @@ export default class FormValidation {
     const closeForm = item.querySelector(this._formSelector);
     const buttonElement = item.querySelector(this._submitButtonSelector);
     const inputList = Array.from(item.querySelectorAll(this._inputSelector));
-    closeForm.reset();
     inputList.forEach((element) => {
       this._hideInputError(closeForm, element);
-    })
+    });
+    closeForm.reset();
     this._toggleButtonState(inputList, buttonElement);
   }
 }

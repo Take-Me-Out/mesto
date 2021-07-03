@@ -1,7 +1,7 @@
 import FormValidation from './FormValidator.js';
 import {initialCards} from './initial-сards.js';
 import Card from './Card.js';
-export {closePopup, openPopup}
+export {closePopup, openPopup, closePopupPhoto, openPopupPhoto}
 
 const cardConfig = {
   elements: document.querySelector('.elements'),
@@ -54,6 +54,7 @@ const formEditProfile = document.querySelector('.popup-form_id_edit-profile');
 const popupAdd = document.querySelector('.popup_id_add-card');
 const addPhoto = document.querySelector('.profile__add-photo-button');
 const formAddCard = popupAdd.querySelector(cardConfig.formAddCard);
+const popupPhoto = document.querySelector('.popup_id_photo');
 const editProfileFormValidate = new FormValidation(validationConfig, validationConfig.formSelector);
 const addCardFormValidate = new FormValidation(validationConfig, validationConfig.formSelector);
 const newValidation = new FormValidation(validationConfig, validationConfig.formSelector);
@@ -62,11 +63,20 @@ function openPopup(item) {
   item.classList.add('popup_visible');
   document.addEventListener('keydown', closePopupByEsc);
 }
+function openPopupPhoto() {
+  popupPhoto.classList.add('popup_visible');
+  document.addEventListener('keydown', closePopupPhotoByEsc);
+}
 function closePopup(item) {
   item.classList.remove('popup_visible');
   document.removeEventListener('keydown', closePopupByEsc);
   newValidation.resetForm(item);
 }
+function closePopupPhoto() {
+  popupPhoto.classList.remove('popup_visible');
+  document.removeEventListener('keydown', closePopupPhotoByEsc);
+}
+
 function openPopupProfile() {
   openPopup(popupEdit);
   inputUserProfession.value = userProfession.textContent;
@@ -112,12 +122,19 @@ popupAdd.addEventListener('click', (evt) => {
 
 // Закрываем попап через Esc
 
-function closePopupByEsc (evt) {
+function closePopupByEsc (evt) {             
   if (evt.key==='Escape') {
     const popupVisible = document.querySelector('.popup_visible');
     closePopup(popupVisible);
    }
-  }
+}
+
+function closePopupPhotoByEsc (evt) {              
+  if (evt.key==='Escape') {
+    const popupVisible = document.querySelector('.popup_visible');
+    closePopupPhoto(popupVisible);
+    }
+}
 
 function setButtonEventListeners(cardElement) {
   const likeButton = cardElement.querySelector(cardConfig.likeButton);

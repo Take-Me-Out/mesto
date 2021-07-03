@@ -1,4 +1,4 @@
-import { closePopup, openPopup } from "./index.js";
+import { closePopup, openPopup, closePopupPhoto, openPopupPhoto } from "./index.js";
 export default class Card {
   constructor(data, template) {
     this._template = template,
@@ -59,10 +59,10 @@ export default class Card {
   }
   
   _setEventListeners = (item, photoElement, textElement) => {
-    const popupPhotoElement = document.querySelector('.popup_id_photo');
+    //const popupPhotoElement = document.querySelector('.popup_id_photo');
     item.addEventListener('click', () => {this._createPhoto(photoElement)});
     item.addEventListener('click', () => {this._createText(textElement)});
-    item.addEventListener('click', () => {openPopup(popupPhotoElement)});
+    item.addEventListener('click', () => {openPopupPhoto()});
   }
 
   createCard = () => {
@@ -79,10 +79,10 @@ export default class Card {
 
     const popupPhotoElement = document.querySelector('.popup_id_photo');
     const closePhotoButton = popupPhotoElement.querySelector('.popup__close-button');
-    closePhotoButton.addEventListener('click', () => closePopup(popupPhotoElement));
+    closePhotoButton.addEventListener('click', () => closePopupPhoto());
     popupPhotoElement.addEventListener('click', (evt) => {
       if (evt.target.classList.contains('popup')) {
-      closePopup(popupPhotoElement);
+        closePopupPhoto();
     }
   });
 
