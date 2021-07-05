@@ -30,39 +30,41 @@ export default class Card {
     return cardElement;
   }
 
-  /*_openPopup = (item) => {
-    item.classList.add('popup_visible');
-    document.addEventListener('keydown', this._closePopupByEsc);
-  }
-
-  _closePopup = (item) => {
-    item.classList.remove('popup_visible');
-    document.removeEventListener('keydown', this._closePopupByEsc);
-  }*/
-
   _closePopupByEsc = (evt) => {
     if (evt.key==='Escape') {
       const popupVisible = document.querySelector('.popup_visible');
       closePopup(popupVisible);
      }
     }
-  
-  _createPhoto = (photoElement) => {
+
+  _handleLikeButton = () => {
+    const likeButton = this._element.querySelector('.element__like-button');
+    likeButton.classList.toggle('element__like-button_active');
+  }
+
+  _handleDeleteButton = () => {
+    const deleteButton = this._element.querySelector('.element__delete-button');
+    deleteButton.closest('.element').remove();
+  }
+    
+
+  _createPhotoPreview = (photoElement, textElement) => {
     const popupPhotoImage = document.querySelector('.popup__photo-image');
     popupPhotoImage.src = photoElement.src;
     popupPhotoImage.alt = photoElement.alt;
-  }
-
-  _createText = (textElement) => {
     const popupPhotoCaption = document.querySelector('.popup__photo-caption');
     popupPhotoCaption.textContent = textElement.textContent;
+    openPopupPhoto();
   }
   
   _setEventListeners = (item, photoElement, textElement) => {
-    //const popupPhotoElement = document.querySelector('.popup_id_photo');
-    item.addEventListener('click', () => {this._createPhoto(photoElement)});
-    item.addEventListener('click', () => {this._createText(textElement)});
-    item.addEventListener('click', () => {openPopupPhoto()});
+    item.addEventListener('click', () => {this._createPhotoPreview(photoElement, textElement)});
+    this._element.querySelector('.element__like-button').addEventListener('click', () => {
+      this._handleLikeButton();
+    });
+    this._element.querySelector('.element__delete-button').addEventListener('click', () => {
+      this._handleDeleteButton()
+      });
   }
 
   createCard = () => {
@@ -86,6 +88,6 @@ export default class Card {
     }
   });
 
-    return this._element;
-    }
+  return this._element;
+  }
 }
