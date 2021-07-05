@@ -2,23 +2,8 @@ import { closePopup, openPopup, closePopupPhoto, openPopupPhoto } from "./index.
 export default class Card {
   constructor(data, template) {
     this._template = template,
-    this._popupEdit = data.popupEdit,
-    this._inputUserName = data.inputUserName,
-    this._inputUserProfession = data.inputUserProfession,
-    this._userProfession = data.userProfession,
-    this._userName = data.userName,
-    this._opeEditProfileButton = data.opeEditProfileButton,
-    this._closeButton = data.closeButton,
-    this._popup = data.popup,
-    this._formAddCard = data.formAddCard,
-    this._popupAddInputLink = data.popupAddInputLink,
-    this._popupAddInputName = data.popupAddInputName,
-    this._popupAddInputAlt = data.popupAddInputAlt,
-    this._popupVisible = data.popupVisible,
-    this._popupVisibleToggle = data.popupVisibleToggle,
     this._image = data.link, 
-    this._text = data.name, 
-    this.alt = data.alt
+    this._text = data.name
   }
 
   _createTemplate = () => {
