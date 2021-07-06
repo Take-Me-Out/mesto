@@ -52,18 +52,9 @@ export default class Card {
     cardPhotoElement.src = this._image; 
     cardTextElement.textContent = this._text; 
     cardPhotoElement.alt = this._alt; 
-    //открытие попапа с карточкой
  
     const popupPhotoElement = document.querySelector('.popup_id_photo');
     this._setEventListeners(cardPhotoElement, cardTextElement, popupPhotoElement);
-    
-    const closePhotoButton = popupPhotoElement.querySelector('.popup__close-button');
-    closePhotoButton.addEventListener('click', () => closePopup(popupPhotoElement));
-    popupPhotoElement.addEventListener('click', (evt) => {
-      if (evt.target.classList.contains('popup')) {
-        closePopup(popupPhotoElement);
-    }
-  });
 
   return this._element;
   }

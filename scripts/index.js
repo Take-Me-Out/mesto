@@ -55,6 +55,7 @@ const popupAdd = document.querySelector('.popup_id_add-card');
 const addPhoto = document.querySelector('.profile__add-photo-button');
 const formAddCard = popupAdd.querySelector(cardConfig.formAddCard);
 const popupPhoto = document.querySelector('.popup_id_photo');
+const closePhotoButton = popupPhoto.querySelector('.popup__close-button');
 const editProfileFormValidate = new FormValidation(validationConfig, validationConfig.formSelector);
 const addCardFormValidate = new FormValidation(validationConfig, validationConfig.formSelector);
 const newValidation = new FormValidation(validationConfig, validationConfig.formSelector);
@@ -110,6 +111,15 @@ closeButtonAdd.addEventListener('click', function() {
 popupAdd.addEventListener('click', (evt) => {
   if (evt.target.classList.contains('popup')) {
     closePopup(popupAdd);
+  }
+});
+
+//закрываем попап с картинкой через крестик
+
+closePhotoButton.addEventListener('click', () => closePopup(popupPhoto));
+popupPhoto.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(popupPhoto);
   }
 });
 
